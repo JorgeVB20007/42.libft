@@ -16,7 +16,7 @@ int main()
 	{
 		if (isdigit(a) == ft_isdigit(a))
 		{
-			printf(".");
+			printf("%d", ft_isdigit(a));
 		}
 		else
 		{
