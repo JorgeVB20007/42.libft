@@ -11,6 +11,7 @@ int	ft_toupper(int c)
 		return (c);
 }
 
+/*
 int main()
 {
 	int a = 0;
@@ -36,3 +37,4 @@ int main()
 	else
 		printf("Something went wrong.");
 }
+*/

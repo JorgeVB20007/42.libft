@@ -27,6 +27,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 /*
 int main()
 {
-	printf("%s", ft_substr("qwertyuiopasdfghjklz", 2, 200));
+	printf("%s", ft_substr("qwertyuiopasdfghjklz", 2, 5));
 }
 */
