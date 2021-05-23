@@ -54,12 +54,13 @@ char	*ft_itoa(int n)
 	if (n == -2147483648 || n == 0)
 		return (minnumber(n));
 	else if (n < 0)
-	{
 		neg = 1;
+	if (neg == 1)
 		n = n * -1;
-	}
 	largo = checklong(n);
 	result = malloc(largo + neg + 1);
+	if (!result)
+		return (0);
 	result[largo + neg] = 0;
 	result[0] = '-';
 	while (n > 0)
@@ -75,6 +76,7 @@ char	*ft_itoa(int n)
 int main()
 {
 	int a;
+	int b;
 
 	a = 2147483647;
 	while (a != 0)
@@ -89,6 +91,18 @@ int main()
 		a = a/2;
 	}
 	printf("\n*** %s ***\n", ft_itoa(0));
+	printf("\nYour own: %s\n\n", ft_itoa(-314159265));
 	
+	b = -2147483648;
+	while (b < 2147483647)
+	{
+		if (atoi(ft_itoa(b)) == b)
+		{
+			printf(",");
+		}
+		else
+			printf("/");
+		b = b + 1;
+	}
 }
 */
