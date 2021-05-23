@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 int	beggining(char const *s1, char const *set)
 {

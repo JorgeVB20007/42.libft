@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include <ctype.h>
+#include "libft.h"
+
 int	ft_isalnum(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
