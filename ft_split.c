@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "libft.h"
 #include <stdio.h>
 int countrows(char const *s, char c)
 {

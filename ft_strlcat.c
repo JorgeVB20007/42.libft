@@ -1,4 +1,5 @@
 #include "libft.h"
+#include <stdio.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {
@@ -45,36 +46,32 @@ void	ft_print_result(int n)
 
 int main()
 {
-	
-	char	dest1[30] = "qaz";
-	char	dest2[30] = "qaz";
-	char	dest3[30] = "qaz";
-	char	dest4[30] = "qaz";
-	char	src[] = "qwertyuiop";
-	int f = 29;
-
-	printf("\nBfre Orig dest %s\n", dest1);
-	printf("Bfre User dest %s\n\n", dest2);
-	printf("Orig %lu\n", strlcat(dest1, src, f));
-	printf("User %lu\n\n", ft_strlcat(dest2, src, f));
-	printf("Orig dest %s\n", dest1);
-	printf("User dest %s\n\n", dest2);
-	if (strlcat(dest3, src, f) == ft_strlcat(dest4, src, f) && *dest3 == *dest4)
-		printf("\n\nALL GOOD :D\n\n");
-	else
-		printf("\n\n :\( \n\n");
-		
-
-	char *dest;
+	char	*dest;
+	char	*dest2;
 	if (!(dest = (char *)malloc(sizeof(*dest) * 15)))
+		return (0);
+	if (!(dest2 = (char *)malloc(sizeof(*dest2) * 15)))
 		return (0);
 	memset(dest, 0, 15);
 	memset(dest, 'r', 6);
+	memset(dest2, 0, 15);
+	memset(dest2, 'r', 6);
 
 	memset(dest, 'r', 15);
-		ft_print_result(strlcat(dest, "lorem ipsum dolor sit amet", 5));
-		write(1, "\n", 1);
-		write(1, dest, 15);
+	printf("   DEST = %s   ", dest);
+	ft_print_result(ft_strlcat("rrrrrrrrrrrrrrrrrrrrr", "lorem ipsum dolor sit amet", 20));
+	write(1, "\n", 1);
+	write(1, "*", 1);
+	write(1, dest, 15);
+	write(1, "*", 1);
 
+	write(1, "\n", 1);
+
+	memset(dest2, 'r', 15);
+	ft_print_result(strlcat("rrrrrrrrrrrrrrrrrrrrr", "lorem ipsum dolor sit amet", 20));
+	write(1, "\n", 1);
+	write(1, "*", 1);
+	write(1, dest2, 15);
+	write(1, "*", 1);
 }
 */
