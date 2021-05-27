@@ -78,12 +78,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 		res[a] = s1[ini + a - 1];
 		a++;
 	}
-	printf("\nIni: %d\nEnd: %d\n\nResult: %s\n", ini, end, res);
 	res[a] = 0;
 	return (res);
 }
-
+/*
 int	main(void)
 {
 	printf("\n** %s **\n", ft_strtrim("aaaabbdfhbaaaa", "aaa"));
 }
+*/

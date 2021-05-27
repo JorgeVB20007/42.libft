@@ -28,10 +28,24 @@ size_t	ft_strlcat(char *dst, const char *src, size_t n)
 		return (c3);
 	}
 }
-
 /*
+#include <unistd.h>
+#include <string.h>
+
+
+void	ft_print_result(int n)
+{
+	char c;
+
+	if (n >= 10)
+		ft_print_result(n / 10);
+	c = n % 10 + '0';
+	write (1, &c, 1);
+}
+
 int main()
 {
+	
 	char	dest1[30] = "qaz";
 	char	dest2[30] = "qaz";
 	char	dest3[30] = "qaz";
@@ -49,5 +63,18 @@ int main()
 		printf("\n\nALL GOOD :D\n\n");
 	else
 		printf("\n\n :\( \n\n");
+		
+
+	char *dest;
+	if (!(dest = (char *)malloc(sizeof(*dest) * 15)))
+		return (0);
+	memset(dest, 0, 15);
+	memset(dest, 'r', 6);
+
+	memset(dest, 'r', 15);
+		ft_print_result(strlcat(dest, "lorem ipsum dolor sit amet", 5));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+
 }
 */

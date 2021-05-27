@@ -10,6 +10,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	hs = (char *)haystack;
 	nl = (char *)needle;
 	contr = 0;
+	if (nl[0] == 0)
+		return (hs);
 	while (contr < len && hs[contr] != 0)
 	{
 		subcontr = 0;
@@ -17,21 +19,35 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		{
 			while (nl[subcontr] == hs[contr + subcontr] && nl[subcontr] != 0)
 				subcontr++;
+			if (contr + subcontr > len)
+				return (NULL);
 			if (nl[subcontr] == 0)
 				return (&hs[contr]);
 		}
 		contr++;
 	}
-	return (0);
+	return (NULL);
 }
 
 /*
+#include <unistd.h>
+#include <string.h>
+void	ft_print_result(char const *s)
+{
+	int		len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	write(1, s, len);
+}
+
 int main()
 {
-	char pajar[] = "abcdefghijklmnopqrstuvwxyz";
-	char aguja[] = "fg";
-	int num = 20;
-	printf("Orig: %s\n", strnstr(pajar, aguja, num));
-	printf("User: %s\n", ft_strnstr(pajar, aguja, num));
+	const char *str;
+	if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "dolor", 15)))
+		ft_print_result("NULL");
+	else
+		ft_print_result(str);
 }
 */
