@@ -10,11 +10,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t n)
 	c = 0;
 	c2 = 0;
 	c3 = 0;
-	while (dst[c] != 0)
-		c++;
-	while (src[c3] != 0)
-		c3++;
-	if (n < c)
+	c = ft_strlen(dst);
+	c3 = ft_strlen(src);
+	if (n < c + 1)
 		return (c3 + n);
 	else
 	{
@@ -47,31 +45,70 @@ void	ft_print_result(int n)
 int main()
 {
 	char	*dest;
-	char	*dest2;
-	if (!(dest = (char *)malloc(sizeof(*dest) * 15)))
-		return (0);
-	if (!(dest2 = (char *)malloc(sizeof(*dest2) * 15)))
-		return (0);
-	memset(dest, 0, 15);
-	memset(dest, 'r', 6);
-	memset(dest2, 0, 15);
-	memset(dest2, 'r', 6);
+	int arg = 7;
 
-	memset(dest, 'r', 15);
-	printf("   DEST = %s   ", dest);
-	ft_print_result(ft_strlcat("rrrrrrrrrrrrrrrrrrrrr", "lorem ipsum dolor sit amet", 20));
-	write(1, "\n", 1);
-	write(1, "*", 1);
-	write(1, dest, 15);
-	write(1, "*", 1);
-
-	write(1, "\n", 1);
-
-	memset(dest2, 'r', 15);
-	ft_print_result(strlcat("rrrrrrrrrrrrrrrrrrrrr", "lorem ipsum dolor sit amet", 20));
-	write(1, "\n", 1);
-	write(1, "*", 1);
-	write(1, dest2, 15);
-	write(1, "*", 1);
-}
-*/
+	dest = (char *)malloc(sizeof(*dest) * 15);
+	if (arg == 1)
+	{
+		dest[11] = 'a';
+		ft_print_result(ft_strlcat(dest, "lorem", 15));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 2)
+	{
+		ft_print_result(ft_strlcat(dest, "", 15));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 3)
+	{
+		dest[0] = '\0';
+		dest[11] = 'a';
+		ft_print_result(ft_strlcat(dest, "lorem ipsum", 15));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 4)
+	{
+		dest[14] = 'a';
+		ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 15));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 5)
+	{
+		dest[10] = 'a';
+		ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 0));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 6)
+	{
+		dest[10] = 'a';
+		ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 1));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 7)
+	{
+		memset(dest, 'r', 15);
+		ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 5));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 8)
+	{
+		dest[10] = 'a';
+		ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 6));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (arg == 9)
+	{
+		memset(dest, 'r', 14);
+		ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 15));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+}*/
