@@ -1,99 +1,111 @@
 #include "libft.h"
 #include <stdio.h>
-int countrows(char const *s, char c)
+
+int	count_rows(char const *s, char c)
 {
-	int a;
-	int rows;
+	int	a;
+	int	h;
 
 	a = 0;
-	rows = 0;
-	while (s[a] != 0)
-	{
-		if (s[a] == c)
-			rows++;
-		a++;
-	}
-	rows++;
-	printf("%d\n", rows);
-	return (rows);
-}
-
-char **createcolumns(char const *s, char c, char **result)
-{
-	int a;
-	int v;
-	int h;
-
-	a = 0;
-	v = 0;
 	h = 0;
-	while (s[a] != 0)
+	while (s[a] == c)
+		a++;
+	while (s[a] != '\0')
 	{
 		if (s[a] == c)
 		{
-			result[v] = malloc(h + 1);
-			v++;
-			h = -1;
-			printf("%d\n", v-1);
-		}
-		h++;
-		a++;
-	}
-	result[v] = NULL;
-	return (result);
-}
-
-char **fillcolumns(char const *s, char c, char **result)
-{
-	int a;
-	int v;
-	int h;
-
-	a = 0;
-	v = 0;
-	h = 0;
-	while (s[a] != 0)
-	{
-		if (s[a] == c)
-		{
-			result[v][h] = 0;
-			v++;
-			h = -1;
+			h++;
+			a++;
+			while (s[a] == c)
+				a++;
 		}
 		else
-		{
-			printf("\n %d %d %c", v, h, s[a]);
-			result[v][h] = s[a];
-		}
-		a++;
-		h++;
+			a++;
 	}
-	return (result);
+	if (s[a - 1] == c)
+		return (h + 1);
+	else
+		return (h + 2);
 }
 
-
-
-char **ft_split(char const *s, char c)
+int	row_locator(char const *s, char c, int a, int b)
 {
-	int rows;
-	char **result;
+	int	d;
 
-	if (s[0] == 0)
-		return (NULL);
-	if (c == 0)
-		return (NULL);
-	rows = countrows(s, c);
-	result = malloc(rows + 1);
-	printf("%s / %s / %s / %s\n", result[0], result[1], result[2], result[3]);
-	result = createcolumns(s, c, result);
-	result = fillcolumns(s, c, result);
-	return (result);
-
+	d = 0;
+	while (d < a)
+	{
+		if (s[b] == c)
+		{
+			d++;
+			b++;
+			while (s[b] == c)
+			{
+				b++;
+			}
+		}
+		else
+			b++;
+	}
+	return (b);
 }
 
+char	*column_gen(char const *s, char c, int a)
+{
+	char	*result;
+	int		b;
+	int		e;
 
+	b = 0;
+	while (s[b] == c)
+	{
+		b++;
+	}
+	b = row_locator(s, c, a, b);
+	e = 0;
+	while (s[e + b] != c && s[e + b] != 0)
+		e++;
+	result = malloc(e + 1);
+	e = 0;
+	while (s[b + e] != c && s[b + e] != 0)
+	{
+		result[e] = s[b + e];
+		e++;
+	}
+	result[e] = '\0';
+	return (result);
+}
 
-#include <unistd.h>
+char	**ft_split(char const *s, char c)
+{
+	int		rows;
+	char	**result;
+	int		a;
+
+	if (s[0] == '\0')
+	{
+		result = malloc(sizeof(char *));
+		result[0] = NULL;
+		return (result);
+	}
+	if (c == '\0')
+	{
+		return (NULL);
+	}
+	a = 0;
+	a = 0;
+	rows = count_rows(s, c);
+	result = malloc(sizeof(char *) * rows);
+	while (a < rows - 1)
+	{
+		result[a] = column_gen(s, c, a);
+		a++;
+	}
+	result[rows - 1] = NULL;
+	return (result);
+}
+
+/*
 void	ft_print_result(char const *s)
 {
 	int		len;
@@ -104,21 +116,101 @@ void	ft_print_result(char const *s)
 	write(1, s, len);
 }
 
-int	main(void)
+int		main()
 {
 	char	**tabstr;
-	int		i = 0;
+	int		i;
+	int		arg = 6;
 
-	if (!(tabstr = ft_split("aaaa.bbbb.cccc", '.')))
-		ft_print_result("NULL");
-	else
+	i = 0;
+	if (arg == 1)
 	{
-		while (tabstr[i] != NULL)
+		if (!(tabstr = ft_split("          ", ' ')))
+			ft_print_result("NULL");
+		else
 		{
-			ft_print_result(tabstr[i]);
-			write(1, "\n", 1);
-			i++;
+			while (tabstr[i] != NULL)
+			{
+				ft_print_result(tabstr[i]);
+				write(1, "\n", 1);
+				i++;
+			}
 		}
 	}
-
-}
+	else if (arg == 2)
+	{
+		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, 
+		consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')))
+			ft_print_result("NULL");
+		else
+		{
+			while (tabstr[i] != NULL)
+			{
+				ft_print_result(tabstr[i]);
+				write(1, "\n", 1);
+				i++;
+			}
+		}
+	}
+	else if (arg == 3)
+	{
+		if (!(tabstr = ft_split("   lorem   ipsum dolor     
+		sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ')))
+			ft_print_result("NULL");
+		else
+		{
+			while (tabstr[i] != NULL)
+			{
+				ft_print_result(tabstr[i]);
+				write(1, "\n", 1);
+				i++;
+			}
+		}
+	}
+	else if (arg == 4)
+	{
+		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur a
+		dipiscing elit. Sed non risus. Suspendisse 
+		lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, 
+		dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, 
+		semper congue, euismod non, mi.", 'i')))
+			ft_print_result("NULL");
+		else
+		{
+			while (tabstr[i] != NULL)
+			{
+				ft_print_result(tabstr[i]);
+				write(1, "\n", 1);
+				i++;
+			}
+		}
+	}
+	else if (arg == 5)
+	{
+		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, 
+		consectetur adipiscing elit. Sed non risus. Suspendisse 
+		lectus tortor, dignissim sit amet, adipiscing nec,
+		 ultricies sed, dolor. Cras elementum ultricies diam. 
+		 Maecenas ligula massa, varius a, semper congue, euismod 
+		 non, mi.", 'z')))
+			ft_print_result("NULL");
+		else
+		{
+			while (tabstr[i] != NULL)
+			{
+				ft_print_result(tabstr[i]);
+				write(1, "\n", 1);
+				i++;
+			}
+		}
+	}
+	else if (arg == 6)
+	{
+		if (!(tabstr = ft_split("", 'z')))
+			ft_print_result("NULL");
+		else
+			if (!tabstr[0])
+				ft_print_result("ok\n");
+	}
+	return (0);
+}*/

@@ -9,7 +9,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	r = 0;
 	r = ft_strlen(s);
 	if (start > (unsigned int)r)
-		return ("\0");
+	{
+		t = malloc(1);
+		t[0] = '\0';
+		return (t);
+	}
 	if (len > r - start)
 		max = r - start;
 	else

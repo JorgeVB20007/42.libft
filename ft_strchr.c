@@ -7,7 +7,7 @@ char	*ft_strchr(const char *s, int c)
 
 	a = 0;
 	l = (char *)s;
-	while (l[a] != c)
+	while (l[a] != (char)c)
 	{
 		if (l[a] == 0)
 		{
@@ -19,14 +19,16 @@ char	*ft_strchr(const char *s, int c)
 }
 
 /*
+#include <stdio.h>
+#include <string.h>
 int main()
 {
 	int p;
-	char search[] = "qwertyuiop";
+	char search[] = "tripouille";
 
 	p = 0;
-	printf("Orig %s\n", strchr(search, 0));
-	printf("User %s\n", ft_strchr(search, 0));
+	printf("Orig %s\n", strchr(search, 't' + 256));
+	printf("User %s\n", ft_strchr(search, 't' + 256));
 	while (p < 256)
 	{
 		if (strchr(search, p) == ft_strchr(search, p))

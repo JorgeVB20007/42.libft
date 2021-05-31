@@ -4,11 +4,8 @@ int	beggining(char const *s1, char const *set)
 {
 	int	a;
 	int	b;
-	int	c;
 
 	a = 0;
-	b = 0;
-	c = 0;
 	while (s1[a] != 0)
 	{
 		b = 0;
@@ -16,74 +13,152 @@ int	beggining(char const *s1, char const *set)
 		{
 			if (s1[a] == set[b])
 			{
-				c++;
+				a++;
 				break ;
 			}
 			else
 				b++;
 		}
 		if (set[b] == 0)
-			break ;
-		a++;
+			return (a);
 	}
-	return (c);
+	return (-1);
 }
 
-int	ending(char const *s1, char const *set, int largo)
+int	ending(char const *s1, char const *set, int size)
 {
 	int	a;
 	int	b;
-	int	c;
 
-	a = largo - 1;
-	b = 0;
-	c = 0;
-	while (a > 0)
+	a = size - 1;
+	while (s1[a] != 0)
 	{
 		b = 0;
 		while (set[b] != 0)
 		{
 			if (s1[a] == set[b])
 			{
-				c++;
+				a--;
 				break ;
 			}
 			else
 				b++;
 		}
 		if (set[b] == 0)
-			break ;
-		a--;
+			return (a + 1);
 	}
-	return (c);
+	return (a + 1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		ini;
-	int		end;
-	int		largo;
-	char	*res;
-	int		a;
+	int		size;
+	char	*result;
+	int		loc;
 
-	largo = 0;
-	a = 0;
-	while (s1[largo] != 0)
-		largo++;
-	ini = beggining(s1, set);
-	end = ending(s1, set, largo);
-	res = malloc(end - ini + 1);
-	while (a + ini < end)
+	size = 0;
+	loc = 0;
+	if (beggining(s1, set) < 0)
 	{
-		res[a] = s1[ini + a - 1];
-		a++;
+		result = malloc(1);
+		result[0] = '\0';
+		return (result);
 	}
-	res[a] = 0;
-	return (res);
+	while (s1[size] != 0)
+		size++;
+	result = malloc(ending(s1, set, size) - beggining(s1, set) + 1);
+	while (loc + beggining(s1, set) < ending(s1, set, size))
+	{
+		result[loc] = s1[loc + beggining(s1, set)];
+		loc++;
+	}
+	result[loc] = 0;
+	return (result);
 }
+
 /*
+#include <stdio.h>
+void	ft_print_result(char const *s)
+{
+	int		len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	write(1, s, len);
+}
+
+
+
+
+
 int	main(void)
 {
-	printf("\n** %s **\n", ft_strtrim("aaaabbdfhbaaaa", "aaa"));
+	char	*strtrim;
+
+// =============== HERE ===============
+	int arg = 6;
+// =============== HERE ===============
+
+	if (arg == 1)
+	{
+		char s1[] = "lorem \n ipsum \t dolor \n sit \t amet";
+		if (!(strtrim = ft_strtrim(s1, " ")))
+			printf("NULL");
+		else
+			printf(" *%s*\n ", strtrim);
+		if (strtrim == s1)
+			printf("\nA new string was not returned");
+	}
+	else if (arg == 2)
+	{
+		char s1[] = "lorem ipsum dolor sit amet";
+		if (!(strtrim = ft_strtrim(s1, "te")))
+			printf("NULL");
+		else
+			printf(" *%s*\n ", strtrim);
+		if (strtrim == s1)
+			printf("\nA new string was not returned");
+	}
+	else if (arg == 3)
+	{
+		char s1[] = " lorem ipsum dolor sit amet";
+		if (!(strtrim = ft_strtrim(s1, "l ")))
+			printf("NULL");
+		else
+			printf(" *%s*\n ", strtrim);
+		if (strtrim == s1)
+			printf("\nA new string was not returned");
+	}
+	else if (arg == 4)
+	{
+		char s1[] = "lorem ipsum dolor sit amet";
+		if (!(strtrim = ft_strtrim(s1, "tel")))
+			printf("NULL");
+		else
+			printf(" *%s*\n ", strtrim);
+		if (strtrim == s1)
+			printf("\nA new string was not returned");
+	}
+	else if (arg == 5)
+	{
+		char s1[] = "          ";
+		if (!(strtrim = ft_strtrim(s1, " ")))
+			printf("NULL");
+		else
+			printf(" *%s*\n ", strtrim);
+		if (strtrim == s1)
+			printf("\nA new string was not returned");
+	}
+	else if (arg == 6)
+	{
+		char s1[] = "1234567890987654321";
+		if (!(strtrim = ft_strtrim(s1, "2431")))
+			printf("NULL");
+		else
+			printf(" *%s*\n ", strtrim);
+		if (strtrim == s1)
+			printf("\nA new string was not returned");
+	}
 }
 */
