@@ -9,6 +9,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	a = 0;
 	f = dest;
 	g = src;
+	if (f == NULL && g == NULL)
+		return (NULL);
 	while (a < n)
 	{
 		f[a] = g[a];

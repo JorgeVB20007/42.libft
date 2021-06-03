@@ -1,13 +1,9 @@
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+unsigned char	*fcalc(unsigned char *f, const unsigned char *g, size_t n)
 {
-	size_t				a;
-	unsigned char		*f;
-	const unsigned char	*g;
+	size_t	a;
 
-	f = dest;
-	g = src;
 	if (f > g)
 	{
 		a = n;
@@ -27,6 +23,18 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		}
 	}
 	return (f);
+}
+
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	unsigned char		*f;
+	const unsigned char	*g;
+
+	f = dest;
+	g = src;
+	if (dest == NULL && src == NULL)
+		return (NULL);
+	return (fcalc(f, g, n));
 }
 
 /*

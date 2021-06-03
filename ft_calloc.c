@@ -6,6 +6,8 @@ void	*ft_calloc(size_t count, size_t size)
 	size_t	cntr;
 
 	memory = malloc(count * size);
+	if (!memory)
+		return (NULL);
 	cntr = 0;
 	while (cntr < count * size)
 	{

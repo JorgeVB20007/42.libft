@@ -1,5 +1,19 @@
 #include "libft.h"
 
+char	*secondpartjvb(char *t, char const *s, unsigned int start, int max)
+{
+	int	r;
+
+	r = 0;
+	while (r < max)
+	{
+		t[r] = s[r + start];
+		r++;
+	}
+	t[r] = 0;
+	return (t);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*t;
@@ -11,6 +25,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (start > (unsigned int)r)
 	{
 		t = malloc(1);
+		if (!t)
+			return (NULL);
 		t[0] = '\0';
 		return (t);
 	}
@@ -19,14 +35,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	else
 		max = len;
 	t = malloc(max + 1);
-	r = 0;
-	while (r < max)
-	{
-		t[r] = s[r + start];
-		r++;
-	}
-	t[r] = 0;
-	return (t);
+	if (!t)
+		return (NULL);
+	return (secondpartjvb(t, s, start, max));
 }
 /*
 #include <stdio.h>

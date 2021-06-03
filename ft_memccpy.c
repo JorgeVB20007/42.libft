@@ -12,13 +12,13 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	while (a < n)
 	{
 		f[a] = g[a];
-		if (g[a] == c)
+		if (g[a] == (unsigned char)c)
 		{
 			return (&f[a + 1]);
 		}
 		a++;
 	}
-	return (0);
+	return (NULL);
 }
 
 /*

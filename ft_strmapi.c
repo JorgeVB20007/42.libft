@@ -9,7 +9,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	while (s[a] != 0)
 		a++;
 	result = malloc (a + 1);
+	if (!result)
+		return (NULL);
 	result[a] = 0;
+	if (s[0] == 0)
+		return (result);
 	a--;
 	while (a > 0)
 	{
@@ -28,47 +32,17 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 /*
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
 
-void	ft_print_result(char const *s)
+char	addOne(unsigned int i, char c) 
 {
-	int		len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	write(1, s, len);
+	return (i + c);
 }
 
-char	mapi(unsigned int i, char c)
+int	main()
 {
-	static int indexArray[11] = {0};
-
-	if (i > 10 || indexArray[i] == 1)
-		write(1, "wrong index\n", 12);
-	else
-		indexArray[i] = 1;
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	else if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	else
-		return (c);
+	char *s;
+	s = ft_strmapi("", addOne);
+	printf(">> %d <<", strcmp(s, ""));
 }
-
-int		main()
-{
-	char	*str;
-	char	*strmapi;
-
-	alarm(5);
-	str = (char *)malloc(sizeof(*str) * 12);
-	strcpy(str, "LoReM iPsUm");
-	strmapi = ft_strmapi(str, &mapi);
-	ft_print_result(strmapi);
-	if (strmapi == str)
-		ft_print_result("\nA new string was not returned");
-	if (strmapi[11] != '\0')
-		ft_print_result("\nString is not null terminated");
-}
-
 */

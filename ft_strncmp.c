@@ -1,7 +1,9 @@
 #include "libft.h"
 
-int	finalreturning(const char *s1, const char *s2, size_t m)
+int	finalreturning(const char *s1, const char *s2, size_t m, size_t n)
 {
+	if (m == n)
+		return (0);
 	if (s1[m] == 0 && s2[m] != 0)
 		return (-1);
 	if (s1[m] != 0 && s2[m] == 0)
@@ -11,12 +13,12 @@ int	finalreturning(const char *s1, const char *s2, size_t m)
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	m;
-	char	*t1;
-	char	*t2;
+	size_t			m;
+	unsigned char	*t1;
+	unsigned char	*t2;
 
-	t1 = (char *)s1;
-	t2 = (char *)s2;
+	t1 = (unsigned char *)s1;
+	t2 = (unsigned char *)s2;
 	m = 0;
 	if (!n)
 		return (0);
@@ -31,19 +33,28 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 			return (t1[m] - t2[m]);
 		}
 	}
-	return (finalreturning(s1, s2, m));
+	return (finalreturning(s1, s2, m, n));
 }
+
 /*
 #include <stdio.h>
 #include <string.h>
 int main()
 {
-	printf("1  User %d\n", ft_strncmp("salut", "salut", 5));
-	printf("1  Orig %d\n", strncmp("salut", "salut", 5));
+	const char a[] = "abcdef";
+	const char b[] = "abcdefghijklmnop";
 
+	int z = 6;
+	printf("%s vs. %s (%c vs %c)\n\n", a, b, a[0], b[0]);
+	printf("1  User %d\n", ft_strncmp(a, b, z));
+	printf("1  Orig %d\n", strncmp(a, b, z));
 	printf("\n ------ \n\n");
-	printf("2  User %d\n", ft_strncmp("test", "testss", 7));
-	printf("2  Orig %d\n", strncmp("test", "testss", 7));
+	const char c[] = "·";
+	const char d[] = "";
+
+	printf("%s vs. %s (%c vs %c)\n", c, d, c[0], d[0]);
+	printf("2  User %d\n", ft_strncmp(c, d, 7));
+	printf("2  Orig %d\n", strncmp(c, d, 7));
 
 	printf("\n ------ \n\n");
 	printf("3  User %d\n", ft_strncmp("testss", "test", 7));

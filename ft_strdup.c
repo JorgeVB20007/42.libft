@@ -11,6 +11,8 @@ char	*ft_strdup(const char *s1)
 	while (s1[cntr] != 0)
 		cntr++;
 	s2 = malloc(cntr + 1);
+	if (!s2)
+		return (NULL);
 	while (cntr2 < cntr)
 	{
 		s2[cntr2] = s1[cntr2];

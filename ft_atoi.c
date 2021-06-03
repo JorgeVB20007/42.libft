@@ -5,7 +5,7 @@ int	ft_atoi(const char *str)
 	char	*text;
 	int		a;
 	int		neg;
-	int		result;
+	long	result;
 
 	text = (char *)str;
 	a = 0;
@@ -25,8 +25,13 @@ int	ft_atoi(const char *str)
 	{
 		result = result * 10 + (str[a] - 48);
 		a++;
+		if  (result * neg > 2147483647)
+			return (-1);
+		if (result * neg < -2147483648)
+			return (0);
 	}
-	return (result * neg);
+	result = result * neg;
+	return ((int)result);
 }
 
 /*
