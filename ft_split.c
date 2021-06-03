@@ -82,17 +82,15 @@ char	**ft_split(char const *s, char c)
 	char	**result;
 	int		a;
 
-	if (s[0] == '\0')
+	a = 0;
+	if (s[0] == '\0' || c == '\0')
 	{
-		result = malloc(sizeof(char *));
-		result[0] = NULL;
+		result = malloc(sizeof(char *) + (!c * sizeof(char *)));
+		if (s[0] != '\0')
+			result[a++] = ft_strdup(s);
+		result[a] = NULL;
 		return (result);
 	}
-	if (c == '\0')
-	{
-		return (NULL);
-	}
-	a = 0;
 	a = 0;
 	rows = count_rows(s, c);
 	result = malloc(sizeof(char *) * rows);
@@ -116,11 +114,14 @@ void	ft_print_result(char const *s)
 	write(1, s, len);
 }
 
+#include <stdio.h>
+#include <string.h>
+
 int		main()
 {
 	char	**tabstr;
 	int		i;
-	int		arg = 6;
+	int		arg = 7;
 
 	i = 0;
 	if (arg == 1)
@@ -139,7 +140,7 @@ int		main()
 	}
 	else if (arg == 2)
 	{
-		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, 
+		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, \
 		consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')))
 			ft_print_result("NULL");
 		else
@@ -154,7 +155,7 @@ int		main()
 	}
 	else if (arg == 3)
 	{
-		if (!(tabstr = ft_split("   lorem   ipsum dolor     
+		if (!(tabstr = ft_split("   lorem   ipsum dolor  \
 		sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ')))
 			ft_print_result("NULL");
 		else
@@ -169,10 +170,10 @@ int		main()
 	}
 	else if (arg == 4)
 	{
-		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur a
-		dipiscing elit. Sed non risus. Suspendisse 
-		lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, 
-		dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, 
+		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur a\
+		dipiscing elit. Sed non risus. Suspendisse \
+		lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, \
+		dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, \
 		semper congue, euismod non, mi.", 'i')))
 			ft_print_result("NULL");
 		else
@@ -187,11 +188,11 @@ int		main()
 	}
 	else if (arg == 5)
 	{
-		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, 
-		consectetur adipiscing elit. Sed non risus. Suspendisse 
-		lectus tortor, dignissim sit amet, adipiscing nec,
-		 ultricies sed, dolor. Cras elementum ultricies diam. 
-		 Maecenas ligula massa, varius a, semper congue, euismod 
+		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, \
+		consectetur adipiscing elit. Sed non risus. Suspendisse \
+		lectus tortor, dignissim sit amet, adipiscing nec, \
+		 ultricies sed, dolor. Cras elementum ultricies diam. \
+		 Maecenas ligula massa, varius a, semper congue, euismod \
 		 non, mi.", 'z')))
 			ft_print_result("NULL");
 		else
@@ -211,6 +212,23 @@ int		main()
 		else
 			if (!tabstr[0])
 				ft_print_result("ok\n");
+	}
+	else if (arg == 7)
+	{
+		char **tab = ft_split("tripouille", 0);
+		printf("%s\n", tab[0]);
+		printf("%s\n", tab[1]);
+		char **tab2 = ft_split("     ", ' ');
+		printf("%s\n", tab2[0]);
+		int fgh = 0;
+		while (tab[fgh] != NULL)
+		{
+			write(1, "+", 1);
+			free(tab[fgh]);
+			write(1, "/", 1);
+			fgh++;
+		}
+		free(tab);
 	}
 	return (0);
 }*/
