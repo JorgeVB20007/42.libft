@@ -76,6 +76,21 @@ char	*column_gen(char const *s, char c, int a)
 	return (result);
 }
 
+char	**split_error_mngmnt(char const *s, char c)
+{
+	int		a;
+	char	**result;
+
+	a = 0;
+	result = malloc(sizeof(char *) + (!c * sizeof(char *)));
+	if (!result)
+		return (NULL);
+	if (s[0] != '\0')
+		result[a++] = ft_strdup(s);
+	result[a] = NULL;
+	return (result);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	int		rows;
@@ -83,17 +98,14 @@ char	**ft_split(char const *s, char c)
 	int		a;
 
 	a = 0;
+	if (!s)
+		return (NULL);
 	if (s[0] == '\0' || c == '\0')
-	{
-		result = malloc(sizeof(char *) + (!c * sizeof(char *)));
-		if (s[0] != '\0')
-			result[a++] = ft_strdup(s);
-		result[a] = NULL;
-		return (result);
-	}
-	a = 0;
+		return (split_error_mngmnt(s, c));
 	rows = count_rows(s, c);
 	result = malloc(sizeof(char *) * rows);
+	if (!result)
+		return (NULL);
 	while (a < rows - 1)
 	{
 		result[a] = column_gen(s, c, a);
@@ -215,20 +227,15 @@ int		main()
 	}
 	else if (arg == 7)
 	{
-		char **tab = ft_split("tripouille", 0);
-		printf("%s\n", tab[0]);
-		printf("%s\n", tab[1]);
-		char **tab2 = ft_split("     ", ' ');
-		printf("%s\n", tab2[0]);
-		int fgh = 0;
-		while (tab[fgh] != NULL)
+		char *s = "      split       this for   me  !       ";
+		tabstr = ft_split(s, ' ');
+		int k;
+		k = 0;
+		while (tabstr[k])
 		{
-			write(1, "+", 1);
-			free(tab[fgh]);
-			write(1, "/", 1);
-			fgh++;
+			printf("%s\n", tabstr[k]);
+			k++;
 		}
-		free(tab);
 	}
 	return (0);
 }*/

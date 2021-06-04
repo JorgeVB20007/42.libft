@@ -1,5 +1,16 @@
 #include "libft.h"
 
+int	ignorespaces(const char *str)
+{
+	int	a;
+
+	a = 0;
+	while (str[a] == ' ' || str[a] == '\t' || str[a] == '\n' || \
+	str[a] == '\r' || str[a] == '\v' || str[a] == '\f')
+		a++;
+	return (a);
+}
+
 int	ft_atoi(const char *str)
 {
 	char	*text;
@@ -8,24 +19,18 @@ int	ft_atoi(const char *str)
 	long	result;
 
 	text = (char *)str;
-	a = 0;
 	neg = 1;
 	result = 0;
-	while (str[a] == ' ' || str[a] == '\t' || str[a] == '\n' || \
-	str[a] == '\r' || str[a] == '\v' || str[a] == '\f')
-		a++;
-	if (str[a] == '+')
-		a++;
-	else if (str[a] == '-')
-	{
+	a = ignorespaces(str);
+	if (str[a] == '-')
 		neg = -1;
+	if (str[a] == '-' || str[a] == '+')
 		a++;
-	}
 	while (str[a] >= '0' && str[a] <= '9')
 	{
 		result = result * 10 + (str[a] - 48);
 		a++;
-		if  (result * neg > 2147483647)
+		if (result * neg > 2147483647)
 			return (-1);
 		if (result * neg < -2147483648)
 			return (0);

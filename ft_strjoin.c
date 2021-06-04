@@ -13,6 +13,33 @@ int	secondpartjvc(char const *s1, char *ns)
 	return (c1);
 }
 
+char	*mpty_strngs_mngmnt(const char *s1, const char *s2)
+{
+	char		*rslt;
+	int			a;
+	const char	*sa;
+
+	if (!s1 && !s2)
+	{
+		rslt = malloc(1);
+		rslt = NULL;
+		return (rslt);
+	}
+	else if (!s1)
+		sa = s2;
+	else
+		sa = s1;
+	a = 0;
+	while (sa[a])
+		a++;
+	rslt = malloc(a + 1);
+	a = 0;
+	while (sa[a++])
+		rslt[a] = sa[a];
+	rslt[a] = 0;
+	return (rslt);
+}
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		c1;
@@ -21,6 +48,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	c1 = 0;
 	c2 = 0;
+	if (!s1 || !s2)
+		return (mpty_strngs_mngmnt(s1, s2));
 	while (s1[c1] != 0)
 		c1++;
 	while (s2[c2] != 0)
@@ -40,8 +69,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 }
 
 /*
+#include <stdio.h>
 int	main()
 {
-	printf("%s", ft_strjoin("qwertyuiop", "asdfghjklz"));
+	printf("%s", ft_strjoin("", ""));
 }
 */

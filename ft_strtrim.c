@@ -70,6 +70,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	size = 0;
 	loc = 0;
+	if (!s1)
+		return (NULL);
 	if (beggining(s1, set) < 0)
 		return (strtrimproblemchecker(0));
 	while (s1[size] != 0)

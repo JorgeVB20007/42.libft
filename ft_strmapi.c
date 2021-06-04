@@ -1,13 +1,13 @@
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	a;
 	char			*result;
 
-	a = 0;
-	while (s[a] != 0)
-		a++;
+	if (!s)
+		return (NULL);
+	a = ft_strlen(s);
 	result = malloc (a + 1);
 	if (!result)
 		return (NULL);
