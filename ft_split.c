@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:20:37 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:20:40 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdio.h>
 
 int	count_rows(char const *s, char c)
 {
@@ -114,128 +125,3 @@ char	**ft_split(char const *s, char c)
 	result[rows - 1] = NULL;
 	return (result);
 }
-
-/*
-void	ft_print_result(char const *s)
-{
-	int		len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	write(1, s, len);
-}
-
-#include <stdio.h>
-#include <string.h>
-
-int		main()
-{
-	char	**tabstr;
-	int		i;
-	int		arg = 7;
-
-	i = 0;
-	if (arg == 1)
-	{
-		if (!(tabstr = ft_split("          ", ' ')))
-			ft_print_result("NULL");
-		else
-		{
-			while (tabstr[i] != NULL)
-			{
-				ft_print_result(tabstr[i]);
-				write(1, "\n", 1);
-				i++;
-			}
-		}
-	}
-	else if (arg == 2)
-	{
-		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, \
-		consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')))
-			ft_print_result("NULL");
-		else
-		{
-			while (tabstr[i] != NULL)
-			{
-				ft_print_result(tabstr[i]);
-				write(1, "\n", 1);
-				i++;
-			}
-		}
-	}
-	else if (arg == 3)
-	{
-		if (!(tabstr = ft_split("   lorem   ipsum dolor  \
-		sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ')))
-			ft_print_result("NULL");
-		else
-		{
-			while (tabstr[i] != NULL)
-			{
-				ft_print_result(tabstr[i]);
-				write(1, "\n", 1);
-				i++;
-			}
-		}
-	}
-	else if (arg == 4)
-	{
-		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur a\
-		dipiscing elit. Sed non risus. Suspendisse \
-		lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, \
-		dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, \
-		semper congue, euismod non, mi.", 'i')))
-			ft_print_result("NULL");
-		else
-		{
-			while (tabstr[i] != NULL)
-			{
-				ft_print_result(tabstr[i]);
-				write(1, "\n", 1);
-				i++;
-			}
-		}
-	}
-	else if (arg == 5)
-	{
-		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, \
-		consectetur adipiscing elit. Sed non risus. Suspendisse \
-		lectus tortor, dignissim sit amet, adipiscing nec, \
-		 ultricies sed, dolor. Cras elementum ultricies diam. \
-		 Maecenas ligula massa, varius a, semper congue, euismod \
-		 non, mi.", 'z')))
-			ft_print_result("NULL");
-		else
-		{
-			while (tabstr[i] != NULL)
-			{
-				ft_print_result(tabstr[i]);
-				write(1, "\n", 1);
-				i++;
-			}
-		}
-	}
-	else if (arg == 6)
-	{
-		if (!(tabstr = ft_split("", 'z')))
-			ft_print_result("NULL");
-		else
-			if (!tabstr[0])
-				ft_print_result("ok\n");
-	}
-	else if (arg == 7)
-	{
-		char *s = "      split       this for   me  !       ";
-		tabstr = ft_split(s, ' ');
-		int k;
-		k = 0;
-		while (tabstr[k])
-		{
-			printf("%s\n", tabstr[k]);
-			k++;
-		}
-	}
-	return (0);
-}*/

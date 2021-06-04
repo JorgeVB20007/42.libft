@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:25:39 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:25:41 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	calcreturn(const char	*src)
@@ -31,20 +43,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t n)
 	dst[c] = 0;
 	return (calcreturn(src));
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	char *dest;
-	if (!(dest = (char *)malloc(sizeof(*dest) * 15)))
-		return (0);
-	memset(dest, 0, 15);
-	memset(dest, 'r', 6);
-
-	printf("\nBfre Orig dest %s\n", dest);
-	printf("Orig %lu\n", ft_strlcpy(dest, "lorem ipsum dolor sit amet", 0));
-	printf("Orig dest %s\n", dest);
-}
-*/

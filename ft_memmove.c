@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:18:58 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:18:59 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 unsigned char	*fcalc(unsigned char *f, const unsigned char *g, size_t n)
@@ -36,28 +48,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		return (NULL);
 	return (fcalc(f, g, n));
 }
-
-/*
-int main()
-{
-	char str1[50] = "aabbccdd";
-	char str2[50] = "aabbccdd";
-	char str3[50] = ",";
-	char str4[50] = ",";
-	char *ptr1;
-	char *ptr2;
-	char *ptr3;
-	char *ptr4;
-
-	ptr1 = &str1[0];
-	ptr2 = &str2[0];
-	ptr3 = &str3[0];
- 	ptr4 = &str4[0];
-
-	printf("Orig %s\n", memmove(ptr1+2, ptr1, 8));
-	printf("User %s\n", ft_memmove(ptr2+2, ptr2, 8));
-	printf("Orig %s\n", str1);
-	printf("User %s\n", str2);
-
-}
-*/

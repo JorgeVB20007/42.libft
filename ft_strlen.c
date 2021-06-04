@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:25:55 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:25:57 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlen(const char *s)
@@ -9,11 +21,3 @@ size_t	ft_strlen(const char *s)
 		n++;
 	return (n);
 }
-
-/*
-int main()
-{
-	printf("Orig: %zu\n", strlen("qwertyuiop"));
-	printf("User: %zu\n", ft_strlen("qwertyuiop"));
-}
-*/

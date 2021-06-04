@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:14:24 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:14:27 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_isalpha(int c)
@@ -6,29 +18,3 @@ int	ft_isalpha(int c)
 		return (1);
 	return (0);
 }
-
-/*
-int main()
-{
-	int a = 0;
-	int b = 0;
-	while (a < 256)
-	{
-		if (isalpha(a) == ft_isalpha(a))
-		{
-			printf("%d", ft_isalpha(a));
-		}
-		else
-		{
-			printf("ERROR at %d - %d / %d\n", a, isalpha(a), ft_isalpha(a));
-			b = 1;
-		}
-		a++;
-	}
-	if (!b)
-		printf("\n\nAll Good here ^_^\n\n");
-	else
-		printf("Something went wrong.");
-	
-}
-*/

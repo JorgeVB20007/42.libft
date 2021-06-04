@@ -1,4 +1,15 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:13:48 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:13:59 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_isalnum(int c)
@@ -9,29 +20,3 @@ int	ft_isalnum(int c)
 		return (1);
 	return (0);
 }
-
-/*
-int main()
-{
-	int a = 0;
-	int b = 0;
-	while (a < 256)
-	{
-		if (isalnum(a) == ft_isalnum(a))
-		{
-			printf("%d", ft_isalnum(a));
-		}
-		else
-		{
-			printf("ERROR at %d - %d / %d\n", a, isalnum(a), ft_isalnum(a));
-			b = 1;
-		}
-		a++;
-	}
-	if (!b)
-		printf("\n\nAll Good here ^_^\n\n");
-	else
-		printf("Something went wrong.");
-	
-}
-*/

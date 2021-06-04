@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:13:17 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:13:23 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
@@ -13,22 +25,3 @@ void	ft_bzero(void *s, size_t n)
 		a++;
 	}
 }
-
-/*
-int main()
-{
-	char str[50] = "qwertyuiopasdfghjklz";
-	char str2[50] = "qwertyuiopasdfghjklz";
-	char *ptr;
-	char *ptr2;
-
-	ptr = &str[0];
-	ptr2 = &str2[0];
-
-	printf("Orig %s\n", bzero(ptr, 8));
-	printf("User %s\n", ft_bzero(ptr2, 8));
-	printf("Orig %s\n", str);
-	printf("User %s\n", str2);
-
-}
-*/

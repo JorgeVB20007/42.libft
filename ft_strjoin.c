@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:21:42 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:21:44 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	secondpartjvc(char const *s1, char *ns)
@@ -67,11 +79,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ns[c1 + c2] = 0;
 	return (ns);
 }
-
-/*
-#include <stdio.h>
-int	main()
-{
-	printf("%s", ft_strjoin("", ""));
-}
-*/

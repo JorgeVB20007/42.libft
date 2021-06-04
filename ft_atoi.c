@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:13:02 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:13:06 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ignorespaces(const char *str)
@@ -38,14 +50,3 @@ int	ft_atoi(const char *str)
 	result = result * neg;
 	return ((int)result);
 }
-
-/*
-int main()
-{
-	char *str;
-
-	str = "       -00000000214748f432";
-	printf("Orig %d\n", atoi(str));
-	printf("User %d\n", ft_atoi(str));
-}
-*/

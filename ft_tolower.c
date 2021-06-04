@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:27:34 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:27:36 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_tolower(int c)
@@ -9,30 +21,3 @@ int	ft_tolower(int c)
 	else
 		return (c);
 }
-/*
-int main()
-{
-	int a = 0;
-	int b = 0;
-	while (a < 256)
-	{
-		if (tolower(a) == ft_tolower(a))
-		{
-			if (a >= 'a' && a <= 'z')
-				printf("*%d* ", ft_tolower(a));
-			else
-				printf("%d ", ft_tolower(a));
-		}
-		else
-		{
-			printf("ERROR at %d - %d / %d\n", a, tolower(a), ft_tolower(a));
-			b = 1;
-		}
-		a++;
-	}
-	if (!b)
-		printf("\n\nAll Good here ^_^\n\n");
-	else
-		printf("Something went wrong.");
-}
-*/

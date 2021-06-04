@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:15:22 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:15:26 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*minnumber(int n)
@@ -70,38 +82,3 @@ char	*ft_itoa(int n)
 	}
 	return (result);
 }
-
-/*
-int main()
-{
-	int a;
-	int b;
-
-	a = 2147483647;
-	while (a != 0)
-	{
-		printf("\n*** %s ***\n", ft_itoa(a));
-		a = a/2;
-	}
-	a = -2147483648;
-	while (a != 0)
-	{
-		printf("\n*** %s ***\n", ft_itoa(a));
-		a = a/2;
-	}
-	printf("\n*** %s ***\n", ft_itoa(0));
-	printf("\nYour own: %s\n\n", ft_itoa(-314159265));
-	
-	b = -2147483648;
-	while (b < 2147483647)
-	{
-		if (atoi(ft_itoa(b)) == b)
-		{
-			printf(",");
-		}
-		else
-			printf("/");
-		b = b + 1;
-	}
-}
-*/

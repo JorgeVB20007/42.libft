@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:18:29 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:18:30 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
@@ -22,18 +34,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-//	char a[] = ".";
-//	char b[] = "";
-//	int n = 5;
-
-	printf("Orig %d\n", memcmp("abcdefgh", "abcdwxyz", 6));
-	printf("User %d\n", ft_memcmp("abcdefgh", "abcdwxyz", 6));
-
-}
-*/

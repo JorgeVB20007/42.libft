@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:26:09 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:26:11 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
@@ -28,21 +40,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	return (result);
 }
-
-/*
-#include <unistd.h>
-#include <string.h>
-#include <stdio.h>
-
-char	addOne(unsigned int i, char c) 
-{
-	return (i + c);
-}
-
-int	main()
-{
-	char *s;
-	s = ft_strmapi("", addOne);
-	printf(">> %d <<", strcmp(s, ""));
-}
-*/

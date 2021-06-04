@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:21:27 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:21:28 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strdup(const char *s1)
@@ -21,12 +33,3 @@ char	*ft_strdup(const char *s1)
 	s2[cntr2] = 0;
 	return (s2);
 }
-
-/*
-int main()
-{
-	char s1[] = "dyrjfxnnd3 54g65&$·$";
-	printf("Orig %s\n", strdup(s1));
-	printf("User %s\n", ft_strdup(s1));
-}
-*/

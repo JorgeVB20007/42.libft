@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:21:09 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:21:12 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
@@ -17,25 +29,3 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (&l[a]);
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	int p;
-	char search[] = "tripouille";
-
-	p = 0;
-	printf("Orig %s\n", strchr(search, 't' + 256));
-	printf("User %s\n", ft_strchr(search, 't' + 256));
-	while (p < 256)
-	{
-		if (strchr(search, p) == ft_strchr(search, p))
-			printf("%s :) -    ", strchr(search, p));
-		else 
-			printf("\n\n- ERROR AT %d\n\n", p);
-		p++;
-	}
-}
-*/

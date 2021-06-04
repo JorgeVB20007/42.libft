@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/04 19:27:17 by jvacaris          #+#    #+#             */
+/*   Updated: 2021/06/04 19:27:19 by jvacaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*secondpartjvb(char *t, char const *s, unsigned int start, int max)
@@ -41,10 +53,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	return (secondpartjvb(t, s, start, max));
 }
-/*
-#include <stdio.h>
-int main()
-{
-	printf("%s", ft_substr("qwertyuiopasdfghjklz", 800, 5));
-}
-*/
